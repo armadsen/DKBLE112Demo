@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Open Reel Software. All rights reserved.
 //
 
-#import "ORSViewController.h"
+#import "ORSScanningViewController.h"
 
-@interface ORSViewController ()
+@interface ORSScanningViewController ()
 
 @end
 
-@implementation ORSViewController
+@implementation ORSScanningViewController
 
 - (void)viewDidLoad
 {
@@ -26,4 +26,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)scan:(id)sender {
+}
 @end
