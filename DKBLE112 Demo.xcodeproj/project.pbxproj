@@ -13,13 +13,15 @@
 		9D2426E1169B8DE000AB29DD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D0169B8DE000AB29DD /* Default-568h@2x.png */; };
 		9D2426E2169B8DE000AB29DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D1169B8DE000AB29DD /* Default.png */; };
 		9D2426E3169B8DE000AB29DD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D2169B8DE000AB29DD /* Default@2x.png */; };
-		9D2426E4169B8DE000AB29DD /* DKBLE112 Demo-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D3169B8DE000AB29DD /* DKBLE112 Demo-Info.plist */; };
 		9D2426E5169B8DE000AB29DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D4169B8DE000AB29DD /* InfoPlist.strings */; };
 		9D2426E6169B8DE000AB29DD /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D6169B8DE000AB29DD /* MainStoryboard_iPad.storyboard */; };
 		9D2426E7169B8DE000AB29DD /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D8169B8DE000AB29DD /* MainStoryboard_iPhone.storyboard */; };
 		9D2426E8169B8DE000AB29DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2426DC169B8DE000AB29DD /* main.m */; };
 		9D2426E9169B8DE000AB29DD /* ORSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2426DE169B8DE000AB29DD /* ORSAppDelegate.m */; };
 		9D2426EA169B8DE000AB29DD /* ORSScanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2426E0169B8DE000AB29DD /* ORSScanningViewController.m */; };
+		9D2426F0169B91B100AB29DD /* ORSBluetoothLEScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2426EF169B91B100AB29DD /* ORSBluetoothLEScanner.m */; };
+		9D2426F2169B91D000AB29DD /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2426F1169B91D000AB29DD /* CoreBluetooth.framework */; };
+		9D319B5B169C8153002E2E98 /* ORSBluetoothBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D319B5A169C8153002E2E98 /* ORSBluetoothBoardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,11 @@
 		9D2426DE169B8DE000AB29DD /* ORSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSAppDelegate.m; sourceTree = "<group>"; };
 		9D2426DF169B8DE000AB29DD /* ORSScanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSScanningViewController.h; sourceTree = "<group>"; };
 		9D2426E0169B8DE000AB29DD /* ORSScanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSScanningViewController.m; sourceTree = "<group>"; };
+		9D2426EE169B91B100AB29DD /* ORSBluetoothLEScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSBluetoothLEScanner.h; sourceTree = "<group>"; };
+		9D2426EF169B91B100AB29DD /* ORSBluetoothLEScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSBluetoothLEScanner.m; sourceTree = "<group>"; };
+		9D2426F1169B91D000AB29DD /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		9D319B59169C8153002E2E98 /* ORSBluetoothBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSBluetoothBoardViewController.h; sourceTree = "<group>"; };
+		9D319B5A169C8153002E2E98 /* ORSBluetoothBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSBluetoothBoardViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D2426F2169B91D000AB29DD /* CoreBluetooth.framework in Frameworks */,
 				9D2426AA169B854E00AB29DD /* UIKit.framework in Frameworks */,
 				9D2426AC169B854E00AB29DD /* Foundation.framework in Frameworks */,
 				9D2426AE169B854E00AB29DD /* CoreGraphics.framework in Frameworks */,
@@ -77,6 +85,7 @@
 		9D2426A8169B854E00AB29DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D2426F1169B91D000AB29DD /* CoreBluetooth.framework */,
 				9D2426A9169B854E00AB29DD /* UIKit.framework */,
 				9D2426AB169B854E00AB29DD /* Foundation.framework */,
 				9D2426AD169B854E00AB29DD /* CoreGraphics.framework */,
@@ -101,8 +110,8 @@
 				9D2426DD169B8DE000AB29DD /* ORSAppDelegate.h */,
 				9D2426DE169B8DE000AB29DD /* ORSAppDelegate.m */,
 				9D2426ED169B8E0C00AB29DD /* View Controllers */,
-				9D2426DB169B8DE000AB29DD /* DKBLE112 Demo-Prefix.pch */,
-				9D2426DC169B8DE000AB29DD /* main.m */,
+				9D2426F4169B920A00AB29DD /* Bluetooth Communication */,
+				9D2426F3169B920100AB29DD /* Supporting Files */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -131,8 +140,28 @@
 			children = (
 				9D2426DF169B8DE000AB29DD /* ORSScanningViewController.h */,
 				9D2426E0169B8DE000AB29DD /* ORSScanningViewController.m */,
+				9D319B59169C8153002E2E98 /* ORSBluetoothBoardViewController.h */,
+				9D319B5A169C8153002E2E98 /* ORSBluetoothBoardViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9D2426F3169B920100AB29DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D2426DB169B8DE000AB29DD /* DKBLE112 Demo-Prefix.pch */,
+				9D2426DC169B8DE000AB29DD /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9D2426F4169B920A00AB29DD /* Bluetooth Communication */ = {
+			isa = PBXGroup;
+			children = (
+				9D2426EE169B91B100AB29DD /* ORSBluetoothLEScanner.h */,
+				9D2426EF169B91B100AB29DD /* ORSBluetoothLEScanner.m */,
+			);
+			name = "Bluetooth Communication";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,7 +219,6 @@
 				9D2426E1169B8DE000AB29DD /* Default-568h@2x.png in Resources */,
 				9D2426E2169B8DE000AB29DD /* Default.png in Resources */,
 				9D2426E3169B8DE000AB29DD /* Default@2x.png in Resources */,
-				9D2426E4169B8DE000AB29DD /* DKBLE112 Demo-Info.plist in Resources */,
 				9D2426E5169B8DE000AB29DD /* InfoPlist.strings in Resources */,
 				9D2426E6169B8DE000AB29DD /* MainStoryboard_iPad.storyboard in Resources */,
 				9D2426E7169B8DE000AB29DD /* MainStoryboard_iPhone.storyboard in Resources */,
@@ -207,6 +235,8 @@
 				9D2426E8169B8DE000AB29DD /* main.m in Sources */,
 				9D2426E9169B8DE000AB29DD /* ORSAppDelegate.m in Sources */,
 				9D2426EA169B8DE000AB29DD /* ORSScanningViewController.m in Sources */,
+				9D2426F0169B91B100AB29DD /* ORSBluetoothLEScanner.m in Sources */,
+				9D319B5B169C8153002E2E98 /* ORSBluetoothBoardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +297,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -304,6 +335,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/DKBLE112 Demo-Prefix.pch";
 				INFOPLIST_FILE = "Resources/DKBLE112 Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -315,6 +347,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/DKBLE112 Demo-Prefix.pch";
 				INFOPLIST_FILE = "Resources/DKBLE112 Demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -339,6 +372,7 @@
 				9D2426CE169B854E00AB29DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

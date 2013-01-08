@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
-@interface ORSScanningViewController : UIViewController
+@interface ORSScanningViewController : UIViewController <CBCentralManagerDelegate>
 
 - (IBAction)scan:(id)sender;
 
