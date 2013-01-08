@@ -14,7 +14,6 @@
 		9D2426E2169B8DE000AB29DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D1169B8DE000AB29DD /* Default.png */; };
 		9D2426E3169B8DE000AB29DD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D2169B8DE000AB29DD /* Default@2x.png */; };
 		9D2426E5169B8DE000AB29DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D4169B8DE000AB29DD /* InfoPlist.strings */; };
-		9D2426E6169B8DE000AB29DD /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D6169B8DE000AB29DD /* MainStoryboard_iPad.storyboard */; };
 		9D2426E7169B8DE000AB29DD /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D2426D8169B8DE000AB29DD /* MainStoryboard_iPhone.storyboard */; };
 		9D2426E8169B8DE000AB29DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2426DC169B8DE000AB29DD /* main.m */; };
 		9D2426E9169B8DE000AB29DD /* ORSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2426DE169B8DE000AB29DD /* ORSAppDelegate.m */; };
@@ -34,7 +33,6 @@
 		9D2426D2169B8DE000AB29DD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9D2426D3169B8DE000AB29DD /* DKBLE112 Demo-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DKBLE112 Demo-Info.plist"; sourceTree = "<group>"; };
 		9D2426D5169B8DE000AB29DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9D2426D7169B8DE000AB29DD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		9D2426D9169B8DE000AB29DD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		9D2426DB169B8DE000AB29DD /* DKBLE112 Demo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DKBLE112 Demo-Prefix.pch"; sourceTree = "<group>"; };
 		9D2426DC169B8DE000AB29DD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 		9D2426EB169B8DEB00AB29DD /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				9D2426D6169B8DE000AB29DD /* MainStoryboard_iPad.storyboard */,
 				9D2426D8169B8DE000AB29DD /* MainStoryboard_iPhone.storyboard */,
 			);
 			name = Storyboards;
@@ -220,7 +217,6 @@
 				9D2426E2169B8DE000AB29DD /* Default.png in Resources */,
 				9D2426E3169B8DE000AB29DD /* Default@2x.png in Resources */,
 				9D2426E5169B8DE000AB29DD /* InfoPlist.strings in Resources */,
-				9D2426E6169B8DE000AB29DD /* MainStoryboard_iPad.storyboard in Resources */,
 				9D2426E7169B8DE000AB29DD /* MainStoryboard_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,14 +245,6 @@
 				9D2426D5169B8DE000AB29DD /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9D2426D6169B8DE000AB29DD /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9D2426D7169B8DE000AB29DD /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		9D2426D8169B8DE000AB29DD /* MainStoryboard_iPhone.storyboard */ = {
@@ -337,6 +325,7 @@
 				INFOPLIST_FILE = "Resources/DKBLE112 Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -349,6 +338,7 @@
 				INFOPLIST_FILE = "Resources/DKBLE112 Demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
