@@ -1,0 +1,8 @@
+DKBLE112Demo
+------------
+
+This project contains two projects. The first is a BGScript-based project intended to run on the Bluegiga DKBLE112 development board. The second is a corresponding iOS project which connects to and allows interaction with the DKBLE112 using CoreBluetooth. The DKBLE112 project is in the folder 'DKBLE112', while the iOS project is in the folder called 'iOS'.
+
+The DKBLE112 project requires the Bluegiga BLE112 SDK version 1.1 or higher. Note that Bluegiga's development tools are currently Windows-only, so a Windows computer or Virtual Machine installation is necessary to compile, download and run this project.
+
+The iOS project, called 'DKBLE112 Demo' requires iOS 6.0 or higher, and Xcode 4.5 or higher.
