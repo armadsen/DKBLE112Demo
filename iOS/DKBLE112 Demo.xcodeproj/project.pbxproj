@@ -21,6 +21,7 @@
 		9D2426F0169B91B100AB29DD /* ORSBluetoothLEScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D2426EF169B91B100AB29DD /* ORSBluetoothLEScanner.m */; };
 		9D2426F2169B91D000AB29DD /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2426F1169B91D000AB29DD /* CoreBluetooth.framework */; };
 		9D319B5B169C8153002E2E98 /* ORSBluetoothBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D319B5A169C8153002E2E98 /* ORSBluetoothBoardViewController.m */; };
+		9D319B62169C98BD002E2E98 /* ORSBluetoothBoardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D319B61169C98BD002E2E98 /* ORSBluetoothBoardSupport.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		9D2426F1169B91D000AB29DD /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		9D319B59169C8153002E2E98 /* ORSBluetoothBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSBluetoothBoardViewController.h; sourceTree = "<group>"; };
 		9D319B5A169C8153002E2E98 /* ORSBluetoothBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSBluetoothBoardViewController.m; sourceTree = "<group>"; };
+		9D319B60169C98BD002E2E98 /* ORSBluetoothBoardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSBluetoothBoardSupport.h; sourceTree = "<group>"; };
+		9D319B61169C98BD002E2E98 /* ORSBluetoothBoardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSBluetoothBoardSupport.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 		9D2426F4169B920A00AB29DD /* Bluetooth Communication */ = {
 			isa = PBXGroup;
 			children = (
+				9D319B60169C98BD002E2E98 /* ORSBluetoothBoardSupport.h */,
+				9D319B61169C98BD002E2E98 /* ORSBluetoothBoardSupport.m */,
 				9D2426EE169B91B100AB29DD /* ORSBluetoothLEScanner.h */,
 				9D2426EF169B91B100AB29DD /* ORSBluetoothLEScanner.m */,
 			);
@@ -233,6 +238,7 @@
 				9D2426EA169B8DE000AB29DD /* ORSScanningViewController.m in Sources */,
 				9D2426F0169B91B100AB29DD /* ORSBluetoothLEScanner.m in Sources */,
 				9D319B5B169C8153002E2E98 /* ORSBluetoothBoardViewController.m in Sources */,
+				9D319B62169C98BD002E2E98 /* ORSBluetoothBoardSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

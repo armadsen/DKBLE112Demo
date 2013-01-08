@@ -8,9 +8,7 @@
 
 #import "ORSScanningViewController.h"
 #import "ORSBluetoothBoardViewController.h"
-
-NSString * const ORSBluetoothBoardPeripheralUUIDString = @"FC9A330F-B21B-2C24-94CA-910CE5B61F40";
-NSString * const ORSBluetoothBoardCableReplacementServiceUUIDString = @"0bd51666-e7cb-469b-8e4d-2742f1ba77cc";
+#import "ORSBluetoothBoardSupport.h"
 
 @interface ORSScanningViewController ()
 

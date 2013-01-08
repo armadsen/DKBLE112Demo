@@ -11,6 +11,13 @@
 
 @interface ORSBluetoothBoardViewController : UIViewController <CBPeripheralDelegate>
 
+- (IBAction)send:(id)sender;
+
 @property (nonatomic, strong) CBPeripheral *bluetoothPeripheral;
+
+// IBOutlets
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UITextField *inputField;
+@property (weak, nonatomic) IBOutlet UITextView *outputTextView;
 
 @end
