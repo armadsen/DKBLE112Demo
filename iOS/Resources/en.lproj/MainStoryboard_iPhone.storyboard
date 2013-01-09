@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fis-we-liz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3083" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fis-we-liz">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -68,17 +68,18 @@
                         <outlet property="activityIndicator" destination="RX0-yR-K2F" id="G2L-Pj-yoQ"/>
                         <outlet property="scanButton" destination="ZhS-Wq-s9j" id="sPF-T2-3un"/>
                         <outlet property="statusLabel" destination="Dnc-NC-aws" id="erY-ca-Xo8"/>
-                        <segue destination="4pj-Rx-zqO" kind="push" identifier="PushBluetoothBoardViewSegue" id="5fs-yX-uuT"/>
+                        <segue destination="4pj-Rx-zqO" kind="push" identifier="PushBluetoothCableReplacementViewSegue" id="5fs-yX-uuT"/>
+                        <segue destination="Z4c-aU-LtF" kind="push" identifier="PushBluetoothAccelerometerViewSegue" id="IVS-y3-OCI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-142" y="333"/>
         </scene>
-        <!--Bluetooth Board View Controller-->
+        <!--Bluetooth Cable Replacement View Controller-->
         <scene sceneID="cIk-8K-Si4">
             <objects>
-                <viewController id="4pj-Rx-zqO" customClass="ORSBluetoothBoardViewController" sceneMemberID="viewController">
+                <viewController id="4pj-Rx-zqO" customClass="ORSBluetoothCableReplacementViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XsW-C7-Ewi">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -112,7 +113,7 @@
                                     <action selector="send:" destination="4pj-Rx-zqO" eventType="touchUpInside" id="0bl-aM-s9f"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rg0-BN-U4R">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rg0-BN-U4R">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="1qC-DH-Lt6"/>
                                 </constraints>
@@ -150,30 +151,90 @@
             </objects>
             <point key="canvasLocation" x="297" y="333"/>
         </scene>
+        <!--Bluetooth Accelerometer View Controller-->
+        <scene sceneID="1gJ-pT-Sk0">
+            <objects>
+                <viewController id="Z4c-aU-LtF" customClass="ORSBluetoothAccelerometerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tVH-9E-Lng">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ds9-2t-pdZ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="aKr-1N-cGm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1" text="X" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lry-tP-df7">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Y" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3we-aS-Mfq">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Z" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzW-lG-Mwo">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK1-k8-yBh">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="1Zv-OB-qMX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="354-Z6-nbl">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpY-qt-v5W">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qpY-qt-v5W" firstAttribute="trailing" secondItem="354-Z6-nbl" secondAttribute="trailing" type="default" id="29b-cH-WCk"/>
+                            <constraint firstItem="Lry-tP-df7" firstAttribute="leading" secondItem="tVH-9E-Lng" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Bpg-eP-Pgp"/>
+                            <constraint firstItem="Ds9-2t-pdZ" firstAttribute="top" secondItem="tVH-9E-Lng" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Dhp-tS-11x"/>
+                            <constraint firstAttribute="trailing" secondItem="Ds9-2t-pdZ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Dlf-a0-zez"/>
+                            <constraint firstItem="JK1-k8-yBh" firstAttribute="top" secondItem="tVH-9E-Lng" secondAttribute="top" constant="77" id="IRS-U2-fz5"/>
+                            <constraint firstItem="qpY-qt-v5W" firstAttribute="baseline" secondItem="OzW-lG-Mwo" secondAttribute="baseline" type="default" id="Jqt-gC-UWS"/>
+                            <constraint firstItem="OzW-lG-Mwo" firstAttribute="leading" secondItem="tVH-9E-Lng" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Suj-Gi-9Sn"/>
+                            <constraint firstItem="OzW-lG-Mwo" firstAttribute="top" secondItem="3we-aS-Mfq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="XFz-K0-1fZ"/>
+                            <constraint firstItem="354-Z6-nbl" firstAttribute="baseline" secondItem="3we-aS-Mfq" secondAttribute="baseline" type="default" id="bdK-Sb-8W9"/>
+                            <constraint firstItem="3we-aS-Mfq" firstAttribute="leading" secondItem="tVH-9E-Lng" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hM9-Vy-aAJ"/>
+                            <constraint firstItem="3we-aS-Mfq" firstAttribute="top" secondItem="Lry-tP-df7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="haE-ec-cP9"/>
+                            <constraint firstItem="Ds9-2t-pdZ" firstAttribute="leading" secondItem="tVH-9E-Lng" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="m3o-i1-OQH"/>
+                            <constraint firstItem="Lry-tP-df7" firstAttribute="top" secondItem="tVH-9E-Lng" secondAttribute="top" constant="76" id="o5w-cw-WXA"/>
+                            <constraint firstItem="qpY-qt-v5W" firstAttribute="leading" secondItem="354-Z6-nbl" secondAttribute="leading" type="default" id="opo-3N-ZkI"/>
+                            <constraint firstItem="354-Z6-nbl" firstAttribute="leading" secondItem="JK1-k8-yBh" secondAttribute="leading" type="default" id="qR5-nY-AHy"/>
+                            <constraint firstItem="354-Z6-nbl" firstAttribute="trailing" secondItem="JK1-k8-yBh" secondAttribute="trailing" type="default" id="xnH-Rf-IyU"/>
+                            <constraint firstItem="JK1-k8-yBh" firstAttribute="leading" secondItem="Lry-tP-df7" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="y5J-Qi-jfn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="xEt-P1-Eft"/>
+                    <connections>
+                        <outlet property="statusLabel" destination="Ds9-2t-pdZ" id="utk-rr-iw2"/>
+                        <outlet property="xValueLabel" destination="JK1-k8-yBh" id="FoK-Mm-lDm"/>
+                        <outlet property="yValueLabel" destination="354-Z6-nbl" id="V7T-Um-WcN"/>
+                        <outlet property="zValueLabel" destination="qpY-qt-v5W" id="yJJ-26-dML"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rF9-5u-F0j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="896"/>
+        </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ORSBluetoothBoardViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSBluetoothBoardViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="send:"/>
-                <relationship kind="outlet" name="inputField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="outputTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ORSScanningViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ORSScanningViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="scan:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="scanButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="statusLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -15,6 +15,7 @@
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CBPeripheral *connectingPeripheral;
 @property (nonatomic, strong) CBPeripheral *connectedPeripheral;
+@property (nonatomic, strong) NSString *peripheralType;
 @property (nonatomic, strong) NSTimer *scanStopTimer;
 
 @end
@@ -66,8 +67,9 @@
 	[self.centralManager retrievePeripherals:@[ORSBluetoothBoardPeripheralUUIDString]];
 	[self.centralManager retrieveConnectedPeripherals];
 	
-	NSArray *services = @[[CBUUID UUIDWithString:ORSBluetoothBoardCableReplacementServiceUUIDString]];
-	[self.centralManager scanForPeripheralsWithServices:services options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
+	NSArray *services = @[[CBUUID UUIDWithString:ORSBluetoothBoardCableReplacementServiceUUIDString],
+					      [CBUUID UUIDWithString:ORSBluetoothBoardAccelerometerServiceUUIDString]];
+	[self.centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
 	[self.activityIndicator startAnimating];
 	self.statusLabel.text = @"Scanning...";
 	
@@ -92,6 +94,22 @@
 	
 	if (peripheral == self.connectedPeripheral && peripheral.isConnected) return [self performSegueWithIdentifier:@"PushBluetoothBoardViewSegue" sender:nil]; // Already connected
 	if (self.connectingPeripheral && self.connectingPeripheral != peripheral) [self.centralManager cancelPeripheralConnection:self.connectingPeripheral]; // Already connecting to a different device
+	
+	// Determine peripheral type by its services
+	for (CBService *service in peripheral.services)
+	{
+		NSLog(@"service: %@", service);
+		if ([service.UUID isEqual:[CBUUID UUIDWithString:ORSBluetoothBoardCableReplacementServiceUUIDString]])
+		{
+			self.peripheralType = ORSBluetoothBoardCableReplacementType;
+			break;
+		}
+		else if ([service.UUID isEqual:[CBUUID UUIDWithString:ORSBluetoothBoardAccelerometerServiceUUIDString]])
+		{
+			self.peripheralType = ORSBluetoothBoardAccelerometerType;
+			break;
+		}
+	}
 	
 	self.connectingPeripheral = peripheral;
 	[self.centralManager connectPeripheral:peripheral options:@{CBConnectPeripheralOptionNotifyOnDisconnectionKey : @YES}];
@@ -149,7 +167,10 @@
 {
 	self.connectedPeripheral = peripheral;
 	if (peripheral == self.connectingPeripheral) self.connectingPeripheral = nil;
-	[self performSegueWithIdentifier:@"PushBluetoothBoardViewSegue" sender:nil];
+
+//	NSString *segue = self.peripheralType == ORSBluetoothBoardAccelerometerType ? @"PushBluetoothAccelerometerViewSegue" : @"PushBluetoothCableReplacementViewSegue";
+	NSString *segue = 0 ? @"PushBluetoothAccelerometerViewSegue" : @"PushBluetoothCableReplacementViewSegue";
+	[self performSegueWithIdentifier:segue sender:nil];
 }
 
 - (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error

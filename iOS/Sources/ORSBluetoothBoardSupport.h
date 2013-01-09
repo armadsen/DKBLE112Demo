@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 
 extern NSString * const ORSBluetoothBoardPeripheralUUIDString;
+
+extern NSString * const ORSBluetoothBoardCableReplacementType;
 extern NSString * const ORSBluetoothBoardCableReplacementServiceUUIDString;
 extern NSString * const ORSBluetoothBoardCableReplacementCharacteristicUUIDString;
+
+extern NSString * const ORSBluetoothBoardAccelerometerType;
+extern NSString * const ORSBluetoothBoardAccelerometerServiceUUIDString;
+extern NSString * const ORSBluetoothBoardAccelerometerXCharacteristicUUIDString;
+extern NSString * const ORSBluetoothBoardAccelerometerYCharacteristicUUIDString;
+extern NSString * const ORSBluetoothBoardAccelerometerZCharacteristicUUIDString;
 
 @interface ORSBluetoothBoardSupport : NSObject
 

@@ -22,6 +22,8 @@
 		9D2426F2169B91D000AB29DD /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2426F1169B91D000AB29DD /* CoreBluetooth.framework */; };
 		9D319B5B169C8153002E2E98 /* ORSBluetoothBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D319B5A169C8153002E2E98 /* ORSBluetoothBoardViewController.m */; };
 		9D319B62169C98BD002E2E98 /* ORSBluetoothBoardSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D319B61169C98BD002E2E98 /* ORSBluetoothBoardSupport.m */; };
+		9D9DF3C7169CEE09001A5927 /* ORSBluetoothCableReplacementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DF3C6169CEE09001A5927 /* ORSBluetoothCableReplacementViewController.m */; };
+		9D9DF3CA169CEE1B001A5927 /* ORSBluetoothAccelerometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DF3C9169CEE1B001A5927 /* ORSBluetoothAccelerometerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,10 @@
 		9D319B5A169C8153002E2E98 /* ORSBluetoothBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSBluetoothBoardViewController.m; sourceTree = "<group>"; };
 		9D319B60169C98BD002E2E98 /* ORSBluetoothBoardSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSBluetoothBoardSupport.h; sourceTree = "<group>"; };
 		9D319B61169C98BD002E2E98 /* ORSBluetoothBoardSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSBluetoothBoardSupport.m; sourceTree = "<group>"; };
+		9D9DF3C5169CEE09001A5927 /* ORSBluetoothCableReplacementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSBluetoothCableReplacementViewController.h; sourceTree = "<group>"; };
+		9D9DF3C6169CEE09001A5927 /* ORSBluetoothCableReplacementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSBluetoothCableReplacementViewController.m; sourceTree = "<group>"; };
+		9D9DF3C8169CEE1B001A5927 /* ORSBluetoothAccelerometerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSBluetoothAccelerometerViewController.h; sourceTree = "<group>"; };
+		9D9DF3C9169CEE1B001A5927 /* ORSBluetoothAccelerometerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSBluetoothAccelerometerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +148,10 @@
 				9D2426E0169B8DE000AB29DD /* ORSScanningViewController.m */,
 				9D319B59169C8153002E2E98 /* ORSBluetoothBoardViewController.h */,
 				9D319B5A169C8153002E2E98 /* ORSBluetoothBoardViewController.m */,
+				9D9DF3C5169CEE09001A5927 /* ORSBluetoothCableReplacementViewController.h */,
+				9D9DF3C6169CEE09001A5927 /* ORSBluetoothCableReplacementViewController.m */,
+				9D9DF3C8169CEE1B001A5927 /* ORSBluetoothAccelerometerViewController.h */,
+				9D9DF3C9169CEE1B001A5927 /* ORSBluetoothAccelerometerViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -239,6 +249,8 @@
 				9D2426F0169B91B100AB29DD /* ORSBluetoothLEScanner.m in Sources */,
 				9D319B5B169C8153002E2E98 /* ORSBluetoothBoardViewController.m in Sources */,
 				9D319B62169C98BD002E2E98 /* ORSBluetoothBoardSupport.m in Sources */,
+				9D9DF3C7169CEE09001A5927 /* ORSBluetoothCableReplacementViewController.m in Sources */,
+				9D9DF3CA169CEE1B001A5927 /* ORSBluetoothAccelerometerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

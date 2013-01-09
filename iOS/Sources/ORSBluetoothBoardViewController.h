@@ -11,13 +11,20 @@
 
 @interface ORSBluetoothBoardViewController : UIViewController <CBPeripheralDelegate>
 
-- (IBAction)send:(id)sender;
+- (void)sendData:(NSData *)data forCharacteristic:(CBCharacteristic *)characteristic;
 
 @property (nonatomic, strong) CBPeripheral *bluetoothPeripheral;
+@property (nonatomic, copy, readonly) NSArray *characteristics;
 
 // IBOutlets
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UITextField *inputField;
-@property (weak, nonatomic) IBOutlet UITextView *outputTextView;
+
+// For subclasses to override
+
++ (CBUUID *)serviceUUID;
++ (NSArray *)characteristicUUIDs;
++ (BOOL)shouldPollForCharacteristic:(CBCharacteristic *)characteristic;
+
+- (void)receivedNewData:(NSData *)data forCharacteristic:(CBCharacteristic *)characteristic;
 
 @end

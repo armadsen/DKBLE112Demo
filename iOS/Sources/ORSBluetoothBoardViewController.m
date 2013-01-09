@@ -7,11 +7,10 @@
 //
 
 #import "ORSBluetoothBoardViewController.h"
-#import "ORSBluetoothBoardSupport.h"
 
 @interface ORSBluetoothBoardViewController ()
 
-@property (nonatomic, strong) CBCharacteristic *cableReplacementCharacteristic;
+@property (nonatomic, copy, readwrite) NSArray *characteristics;
 
 @end
 
@@ -22,17 +21,13 @@
 	[super viewDidLoad];
 	
 	self.statusLabel.text = @"";
-	self.outputTextView.text = @"";
 	
 	[self startDiscovery];	
 }
 
-#pragma mark - Public
-
-- (IBAction)send:(id)sender
+- (void)sendData:(NSData *)data forCharacteristic:(CBCharacteristic *)characteristic;
 {
-	NSData *dataToSend = [self.inputField.text dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-	[self.bluetoothPeripheral writeValue:dataToSend forCharacteristic:self.cableReplacementCharacteristic type:CBCharacteristicWriteWithResponse];
+	[self.bluetoothPeripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
 }
 
 #pragma mark - Private
@@ -41,7 +36,7 @@
 {
 	if (!self.bluetoothPeripheral) return;
 	
-	CBUUID *serviceUUID = [CBUUID UUIDWithString:ORSBluetoothBoardCableReplacementServiceUUIDString];
+	CBUUID *serviceUUID = [[self class] serviceUUID];
 	[self.bluetoothPeripheral discoverServices:@[serviceUUID]];
 }
 
@@ -51,6 +46,28 @@
 	self.statusLabel.text = [NSString stringWithFormat:@"Error: %@", error.localizedDescription];
 }
 
+#pragma mark - For Subclasses
+
++ (CBUUID *)serviceUUID
+{
+	return nil;
+}
+
++ (NSArray *)characteristicUUIDs
+{
+	return @[];
+}
+
++ (BOOL)shouldPollForCharacteristic:(CBCharacteristic *)characteristic;
+{
+	return NO;
+}
+
+- (void)receivedNewData:(NSData *)data forCharacteristic:(CBCharacteristic *)characteristic
+{
+	
+}
+
 #pragma mark - CBPeripheralDelegate
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
@@ -58,13 +75,18 @@
 	NSLog(@"%s %@ %@", __PRETTY_FUNCTION__, peripheral, error);
 	if (error) return [self presentError:error];
 	
+	CBUUID *serviceUUID = [[self class] serviceUUID];
 	NSIndexSet *matchingServiceIndexes = [peripheral.services indexesOfObjectsPassingTest:^BOOL(CBService *service, NSUInteger idx, BOOL *stop) {
-		return [service.UUID isEqual:[CBUUID UUIDWithString:ORSBluetoothBoardCableReplacementServiceUUIDString]];
+		return [service.UUID isEqual:serviceUUID];
 	}];
+	if (![matchingServiceIndexes count])
+	{
+		self.statusLabel.text = @"Device does not offer any known services";
+		return;
+	}
 	
 	CBService *service = [[peripheral.services objectsAtIndexes:matchingServiceIndexes] lastObject];
-	CBUUID *characteristicUUID = [CBUUID UUIDWithString:ORSBluetoothBoardCableReplacementCharacteristicUUIDString];
-	[self.bluetoothPeripheral discoverCharacteristics:@[characteristicUUID] forService:service];
+	[self.bluetoothPeripheral discoverCharacteristics:[[self class] characteristicUUIDs] forService:service];
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
@@ -72,13 +94,28 @@
 	NSLog(@"%s %@ %@ %@", __PRETTY_FUNCTION__, peripheral, service, error);
 	if (error) return [self presentError:error];
 	
-	NSIndexSet *matchingCharacteristics = [service.characteristics indexesOfObjectsPassingTest:^BOOL(CBCharacteristic *characteristic, NSUInteger idx, BOOL *stop) {
-		return [characteristic.UUID isEqual:[CBUUID UUIDWithString:ORSBluetoothBoardCableReplacementCharacteristicUUIDString]];
+	NSArray *characteristicUUIDs = [[self class] characteristicUUIDs];
+	NSIndexSet *matchingCharacteristicIndexes = [service.characteristics indexesOfObjectsPassingTest:^BOOL(CBCharacteristic *characteristic, NSUInteger idx, BOOL *stop) {
+		return [characteristicUUIDs containsObject:characteristic.UUID];
 	}];
+	if (![matchingCharacteristicIndexes count])
+	{
+		self.statusLabel.text = @"Device does not offer any known characteristics";
+		return;
+	}
 	
-	CBCharacteristic *chacteristic = [[service.characteristics objectsAtIndexes:matchingCharacteristics] lastObject];
-	[peripheral setNotifyValue:YES forCharacteristic:chacteristic];
-	self.cableReplacementCharacteristic = chacteristic;
+	self.characteristics = [service.characteristics objectsAtIndexes:matchingCharacteristicIndexes];
+	for (CBCharacteristic *characteristic in self.characteristics)
+	{
+		if ([[self class] shouldPollForCharacteristic:characteristic])
+		{
+			[peripheral readValueForCharacteristic:characteristic];
+		}
+		else
+		{
+			[peripheral setNotifyValue:YES forCharacteristic:characteristic];
+		}
+	}
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
@@ -87,9 +124,12 @@
 	if (error) return [self presentError:error];
 	
 	NSLog(@"New value for characteristic: %@", characteristic.value);
-	NSString *receivedString = [[NSString alloc] initWithData:characteristic.value encoding:NSASCIIStringEncoding];
-	if (!receivedString) return NSLog(@"Unable to decode received data using ASCII: %@", characteristic.value);
-	self.outputTextView.text = [self.outputTextView.text stringByAppendingString:receivedString];
+	[self receivedNewData:characteristic.value forCharacteristic:characteristic];
+	
+	if ([[self class] shouldPollForCharacteristic:characteristic])
+	{
+		[peripheral performSelector:@selector(readValueForCharacteristic:) withObject:characteristic afterDelay:0.1];
+	}
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
